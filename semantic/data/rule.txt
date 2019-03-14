@@ -1,0 +1,6 @@
+@prefix dz: <http://www.semanticweb.org/dz/ontologies/2019/2/movie#>.
+@include <RDFS>.
+@include <OWL>.
+[rule1: (?subject rdf:type dz:Person)(?subject dz:isActorOf ?object)->(?subject rdfs:subClassOf dz:Actor)]
+[rule2:(?person rdf:type dz:Person)(?person dz:isActorOf ?movie)->(?movie dz:hasActor ?person)]
+[rule4:(?person rdf:type dz:Person)(?person dz:isActorOf ?movie)(?person dz:isDirectorOf ?movie)->(?person rdf:type dz:ActorDirector)]
