@@ -406,33 +406,33 @@
     
 
 
-    <!-- http://www.semanticweb.org/dz/ontologies/2019/2/movie#Action_g -->
+    <!-- http://www.semanticweb.org/dz/ontologies/2019/2/movie#Action -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Action_g">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Action">
         <rdf:type rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Action"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/dz/ontologies/2019/2/movie#Comedy_g -->
+    <!-- http://www.semanticweb.org/dz/ontologies/2019/2/movie#Comedy -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Comedy_g">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Comedy">
         <rdf:type rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Comedy"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/dz/ontologies/2019/2/movie#Crime_g -->
+    <!-- http://www.semanticweb.org/dz/ontologies/2019/2/movie#Crime -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Crime_g">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Crime">
         <rdf:type rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Crime"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/dz/ontologies/2019/2/movie#Drama_g -->
+    <!-- http://www.semanticweb.org/dz/ontologies/2019/2/movie#Drama -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Drama_g">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Drama">
         <rdf:type rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Drama"/>
     </owl:NamedIndividual>
     
@@ -453,9 +453,9 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Kill_Bill_volume_1">
         <rdf:type rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Movie"/>
-        <belong rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Action_g"/>
-        <belong rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Crime_g"/>
-        <belong rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Thriller_g"/>
+        <belong rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Action"/>
+        <belong rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Crime"/>
+        <belong rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Thriller"/>
         <country>USA</country>
         <language>English</language>
         <year rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">2003</year>
@@ -467,8 +467,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Pulp_Fiction">
         <rdf:type rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Movie"/>
-        <belong rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Crime_g"/>
-        <belong rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Thriller_g"/>
+        <belong rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Crime"/>
+        <belong rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Thriller"/>
         <country>USA</country>
         <language>English</language>
         <year rdf:datatype="http://www.w3.org/2001/XMLSchema#positiveInteger">1994</year>
@@ -491,9 +491,9 @@
     
 
 
-    <!-- http://www.semanticweb.org/dz/ontologies/2019/2/movie#Thriller_g -->
+    <!-- http://www.semanticweb.org/dz/ontologies/2019/2/movie#Thriller -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Thriller_g">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Thriller">
         <rdf:type rdf:resource="http://www.semanticweb.org/dz/ontologies/2019/2/movie#Thriller"/>
     </owl:NamedIndividual>
     
