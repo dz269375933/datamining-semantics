@@ -20,50 +20,76 @@ import java.util.Map;
 
 public class GUI {
     JFrame f = new JFrame("Movie");
-    JButton ok = new JButton("确认");
-    JRadioButton included = new JRadioButton("included", true);
-    JRadioButton excluded = new JRadioButton("excluded", false);
-    ButtonGroup bg = new ButtonGroup();
+    JButton ok = new JButton("OK");
+    JRadioButton actor_included = new JRadioButton("included", true);
+    JRadioButton actor_excluded = new JRadioButton("excluded", false);
+    ButtonGroup actorButtons = new ButtonGroup();
 
-    JRadioButton actor=new JRadioButton("actor",true);
-    JRadioButton director=new JRadioButton("director",true);
-    JRadioButton genre=new JRadioButton("genre",true);
-    ButtonGroup filter=new ButtonGroup();
+    JRadioButton director_included = new JRadioButton("included", true);
+    JRadioButton director_excluded = new JRadioButton("excluded", false);
+    ButtonGroup directorButtons = new ButtonGroup();
+
+    JRadioButton genre_included = new JRadioButton("included", true);
+    JRadioButton genre_excluded = new JRadioButton("excluded", false);
+    ButtonGroup genreButtons = new ButtonGroup();
+
 
 
     JTextArea ta = new JTextArea(8, 20);
-    JTextField name = new JTextField(40);
+    JTextField actor_input = new JTextField(40);
+    JTextField director_input = new JTextField(40);
+    JTextField genre_input = new JTextField(40);
 
     Map<String,Movie> map=new HashMap<>();
 
     public void init() {
         initMovieMap();
-        JPanel bottom = new JPanel();
-        bottom.add(name);
-        bottom.add(ok);
-        f.add(bottom, BorderLayout.SOUTH);
-        JPanel checkPanel = new JPanel();
-        bg.add(included);
-        bg.add(excluded);
-        checkPanel.add(included);
-        checkPanel.add(excluded);
+        f.add(ok,BorderLayout.SOUTH);
 
-        filter.add(actor);
-        filter.add(director);
-        filter.add(genre);
+        JPanel actorCheck=new JPanel();
+        actorButtons.add(actor_included);
+        actorButtons.add(actor_excluded);
+//        actorCheck.add(actorButtons);
+        actorCheck.add(actor_included);
+        actorCheck.add(actor_excluded);
 
-        JPanel filterPanel = new JPanel();
-        filterPanel.add(actor);
-        filterPanel.add(director);
-        filterPanel.add(genre);
+        JLabel actorLabel=new JLabel();
+        actorLabel.setText("Actor:");
+        actorCheck.add(actorLabel);
+        actorCheck.add(actor_input);
+
+        JPanel directorCheck=new JPanel();
+        directorButtons.add(director_included);
+        directorButtons.add(director_excluded);
+        directorCheck.add(director_included);
+        directorCheck.add(director_excluded);
+
+        JLabel directorLabel=new JLabel();
+        directorLabel.setText("Director:");
+        directorCheck.add(directorLabel);
+        directorCheck.add(director_input);
+
+
+        JPanel genreCheck=new JPanel();
+        genreButtons.add(genre_included);
+        genreButtons.add(genre_excluded);
+        genreCheck.add(genre_included);
+        genreCheck.add(genre_excluded);
+
+        JLabel genreLabel=new JLabel();
+        genreLabel.setText("Genre:");
+        genreCheck.add(genreLabel);
+        genreCheck.add(genre_input);
+
 
 
 
         Box topLeft = Box.createVerticalBox();
         JScrollPane taJsp = new JScrollPane(ta);
         topLeft.add(taJsp);
-        topLeft.add(checkPanel);
-        topLeft.add(filterPanel);
+        topLeft.add(actorCheck);
+        topLeft.add(directorCheck);
+        topLeft.add(genreCheck);
         Box top = Box.createHorizontalBox();
         top.add(topLeft);
         f.add(top);
@@ -73,57 +99,20 @@ public class GUI {
         ok.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String input=name.getText();
-                boolean flag=included.isSelected();
-                String text="";
-                if(flag){
-                    if(actor.isSelected()){
-                        text+=input+" is actor of:\n";
-                        for(Movie m:map.values()){
-                            if(m.hasActor(input)){
-                                text+=m.getMovieName()+"\n";
-                            }
-                        }
-                    }else if(director.isSelected()){
-                        text+=input +" is director of:\n";
-                        for(Movie m:map.values()){
-                            if(m.hasDirector(input)){
-                                text+=m.getMovieName()+"\n";
-                            }
-                        }
-                    }else if(genre.isSelected()){
-                        text+="These movies are belong "+input+"\n";
-                        for(Movie m:map.values()){
-                            if(m.belongGenre(input)){
-                                text+=m.getMovieName()+"\n";
-                            }
-                        }
-                    }
-                }else{
-                    if(actor.isSelected()){
-                        text+=input+" is not actor of:\n";
-                        for(Movie m:map.values()){
-                            if(!m.hasActor(input)){
-                                text+=m.getMovieName()+"\n";
-                            }
-                        }
-                    }else if(director.isSelected()){
-                        text+=input +"is not director of:\n";
-                        for(Movie m:map.values()){
-                            if(!m.hasDirector(input)){
-                                text+=m.getMovieName()+"\n";
-                            }
-                        }
-                    }else if(genre.isSelected()){
-                        text+="These movies are not belong "+input+"\n";
-                        for(Movie m:map.values()){
-                            if(!m.belongGenre(input)){
-                                text+=m.getMovieName()+"\n";
-                            }
-                        }
+                String result="result:";
+                String actor_text=actor_input.getText();
+                String director_text=director_input.getText();
+                String genre_text=genre_input.getText();
+                for(String movieName:map.keySet()){
+                    Movie movie=map.get(movieName);
+                    if(!(actor_included.isSelected() ^ movie.hasActor(actor_text))
+                            &
+                            !(director_included.isSelected() ^ movie.hasActor(director_text))
+                            & !(genre_included.isSelected() ^ movie.belongGenre(genre_text))){
+                        result+="\n"+movieName;
                     }
                 }
-                ta.setText(text);
+                ta.setText(result);
             }
         });
     }
